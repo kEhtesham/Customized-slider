@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customized Slider</title>
+<style>
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+div#image_path {
+    width: 100%;
+    overflow: hidden;
+}
+.image_slide {
+    transform: translateX(110%);
+    width: 100%;
+    height: 50vh;
+    object-fit: cover;
+    transition: ease all;
+}
+
+/* slide */
+
+.image_slide.visible {
+    transform: translateX(0%);
+}
+img.image_slide.remove {
+    display: block!important;
+    transform: translateX(-110%);
+    position: absolute;
+}
+
+/* fade */
+
+.image_slide.fade {
+    transform: translateX(0%);
+    animation: fadein ease;
+}
+
+.image_slide.fadeout {
+    transform: translateX(0%);
+    animation: fadeout ease;
+}
+
+@keyframes fadein {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeout {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+/* styling */
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: poppins;
+}
+
+.slider_wrap {
+    position: relative;
+}
+
+.slider_move {
+    position: relative;
+    right: 50px;
+    z-index: 999;
+}
+
+button:nth-child(2) {
+    right: 0;
+}
+button {
+    background: #9595952d;
+    border: 0;
+    border-radius: 28px;
+    padding: 2px 24px 6px 24px;
+    position: absolute;
+    bottom: -100px;
+    right: 90px;
+    font-size: 50px;
+    cursor: pointer;
+}
+
+
+/* select btn */
+
+form {
+    position: relative;
+    margin-bottom: 50px;
+}
+input#myFile {
+    padding: 16px 0;
+    cursor: pointer;
+}
+.btn {
+    padding: 18px 86px;
+    border: 0;
+    cursor: pointer;
+}
+.select_file {
+    position: absolute;
+    top: 0;
+    background: red;
+    pointer-events: none;
+}
+form p {
+    margin: 5px 0;
+    font-size: 14px;
+}
+.showUrl {
+    background: #9292ff;
+    width: max-content;
+    margin: 0 auto;
+}
+.sct_btn {
+    background: #f6ff7c;
+}
+.custom_slider {
+    display: flex;
+    justify-content: space-between;
+    max-width: 80%;
+    margin: 150px auto 0;
+}
+
+</style>
+</head>
+<body>
+    <div class="slider_wrap">
+        <div id="image_path">
+            <!-- <img src="image/51.jpg" class="image_slide" style="animation-duration: 0.4s; transition-duration: 0.4s;">
+            <img src="image/nbwebsite_4x.png" class="image_slide" style="animation-duration: 0.4s; transition-duration: 0.4s;"> -->
+            <img src="image/wtalogo.png" id='rest' class="image_slide" style="animation-duration: 0.4s; transition-duration: 0.4s;">
+            <img src="image/mylawman.png" class="image_slide" style="animation-duration: 0.4s; transition-duration: 0.4s;">
+        </div>
+        <div class="slider_move">
+            <button onclick="plusDivs(-1)">&#10094;</button>
+            <button onclick="plusDivs(1)">&#10095;</button>
+        </div>
+    </div>
+
+    <div class="custom_slider">
+        <div class="slider_customization">
+            <form>
+                <input type="file" id="myFile" name="filename" accept=".png, .jpg">
+                <div class="select_file btn">Select Image</div>
+                <p>*You can only select PNG & JPG file</p>
+            </form>
+            
+
+            <select name="effect" id="effects" class="btn sct_btn">
+                <option disabled selected> Select Effect</option>
+                <option value="1">Slide</option>
+                <option value="2">fade</option>
+            </select>
+
+            <select name="speed" id="speeding" class="btn sct_btn">
+                <option value="0.2">0.2</option>
+                <option value="0.4" selected>0.4</option>
+                <option value="0.6">0.6</option>
+                <option value="0.8">0.8</option>
+                <option value="1">1</option>
+            </select>
+        </div>
+
+        <div class="push_slider">
+            <div class="showUrl btn" onclick="showFileName()">Add to Slider</div>
+        </div>
+    </div>
+
+<script>
+
+
+var sliderNumber = 1;
+showDivs(sliderNumber);
+
+function plusDivs(n) {
+    showDivs(sliderNumber += n);
+}
+
+function showDivs(n) {
+    var x = document.getElementsByClassName('image_slide');
+
+    var getSpeed = document.getElementById("speeding").value;
+    var speedElem = document.querySelectorAll('.image_slide');
+    // console.log(speedElem.length);
+
+    for(var k = 0; k < speedElem.length; k++){
+        // console.log("test",speedElem[k]);
+        speedElem[k].style.animationDuration = getSpeed + "s";
+        speedElem[k].style.transitionDuration = getSpeed + "s";
+    }
+    if (n > x.length) {
+        sliderNumber = 1;
+    }
+    if (n < 1){
+        sliderNumber = x.length;
+    }
+
+    var effect = document.getElementById('effects').value;
+    
+    for (var i=0; i< x.length; i++) {
+            x[i].style.display= "none";
+            if (effect == 1) {
+                x[i].classList.remove("visible");
+                x[i].classList.remove("remove");
+                x[i].classList.remove("fadeout");
+            }
+            else {
+                x[i].classList.remove("fade");
+                x[i].classList.add("fadeout");
+            }
+        
+    }
+    
+    x[sliderNumber-1].style.display= "block";
+    if (effect == 1){
+
+        //Slide animation
+        
+        setTimeout(function(){
+            x[sliderNumber-1].classList.add("visible");
+            // console.log('sliderNumber',sliderNumber);
+            if(sliderNumber === 1) {
+                x[x.length - 1].classList.add("remove");
+            } else {
+                x[sliderNumber - 2].classList.add("remove");
+            }
+        }, 1);
+
+        //Removed element
+        
+        x[sliderNumber-1].classList.remove("fade");
+    }
+    else {
+        // Removed element
+
+        x[sliderNumber-1].classList.remove("visible");
+        x[x.length- 1].classList.remove("remove");
+        x[x.length- 2].classList.remove("remove");
+        
+        //fade animation
+
+        x[sliderNumber-1].classList.add("fade");
+        x[sliderNumber-1].classList.remove("fadeout");
+    }
+}
+
+</script>
+
+<script>
+
+    function showFileName() {
+        var fil = document.getElementById("myFile");
+        
+        const para = document.createElement("img");
+        para.className = 'image_slide';
+        para.style.display = 'none';
+
+        const element = document.getElementById("image_path");
+        element.appendChild(para);
+
+        const [file] = fil.files;
+
+        if (file) {
+            para.src = URL.createObjectURL(file);
+            // alert(para.src);
+        }
+        
+    }
+</script>
+</body>
+</html>
