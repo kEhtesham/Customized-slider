@@ -78,6 +78,18 @@ function showDivs(n) {
 // Get and push image
 
 function showFileName() {
+    var dataThrow = document.querySelector('.showUrl');
+    dataThrow.style.backgroundColor = "#2dff00";
+
+    dataThrow.innerText = "Adding Image...";
+    setTimeout(function(){
+        dataThrow.innerText = "Done";
+        var node = document.createElement("i");
+        node.className = "fas fa-check push_icon";
+    
+        dataThrow.appendChild(node);
+    }, 2000);
+
     var fil = document.getElementById("myFile");
 
     const para = document.createElement("img");

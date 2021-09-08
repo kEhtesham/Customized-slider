@@ -1,8 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
 
 div#image_path {
-    width: 100%;
+    width: 90%;
     overflow: hidden;
+    margin: 80px auto 0;
+    box-shadow: 5px 5px 30px #0000001a;
 }
 .image_slide {
     transform: translateX(110%);
@@ -67,7 +69,7 @@ img.image_slide.remove {
 
 .slider_move {
     position: relative;
-    right: 50px;
+    right: 120px;
     z-index: 999;
 }
 
@@ -75,15 +77,16 @@ button:nth-child(2) {
     right: 0;
 }
 button {
-    background: #9595952d;
+    background: transparent;
     border: 0;
     border-radius: 18px;
-    padding: 6px 24px 6px 24px;
+    padding: 10px;
     position: absolute;
-    bottom: -100px;
-    right: 90px;
+    bottom: 0;
+    right: 60px;
     font-size: 50px;
     cursor: pointer;
+    text-shadow: 0 0 20px white;
 }
 
 
@@ -98,31 +101,67 @@ input#myFile {
     cursor: pointer;
 }
 .btn {
-    padding: 18px 86px;
+    padding: 18px;
     border: 0;
     cursor: pointer;
+    border-radius: 5px;
+    box-shadow: 0 0 0px #00000000;
+    transition: 0.3s ease all;
+    width: 250px;
+    text-align: center;
+}
+i.fas.fa-chevron-down {
+    position: absolute;
+    right: 40px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.filteration {
+    display: flex;
+    justify-content: space-between;
+    width: 105%;
+}
+.effect_wrap, .speed_wrap {
+    position: relative;
 }
 .select_file {
     position: absolute;
     top: 0;
-    background: red;
+    background: #e3e3e3;
     pointer-events: none;
+}
+input#myFile:hover + .select_file {
+    box-shadow: 0 0 100px #00000010;
+    background: #e1dfdf;
+}
+i.fas.fa-folder-plus {
+    position: relative;
+    left: -15px;
+    font-size: 22px;
 }
 form p {
     margin: 15px 0;
     font-size: 14px;
 }
 .showUrl {
-    background: #9292ff;
-    width: max-content;
-    margin: 0 auto;
+    background: #e9e9ff;
+    transition: 0.5s ease all;
+}
+.push_icon {
+    position: relative;
+    left: 12px;
 }
 .sct_btn {
-    background: #ddddff;
+    background: #e9e9ff;
 }
 .custom_slider {
     display: flex;
     justify-content: space-between;
     max-width: 80%;
     margin: 150px auto 0;
+}
+select {
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
 }

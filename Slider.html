@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Customized Slider</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
     <div class="slider_wrap">
@@ -22,32 +23,41 @@
     </div>
 
     <div class="custom_slider">
-        <div class="slider_customization">
-            <form>
-                <input type="file" id="myFile" name="filename" accept=".png, .jpg">
-                <!-- <div class="file_name"></div> -->
-                <div class="select_file btn">Select Image</div>
-                <p>*You can only select PNG & JPG file</p>
-            </form>
-            
+        <div class="image_details">
+            <div class="slider_customization">
+                <form>
+                    <input type="file" id="myFile" name="filename" accept=".png, .jpg">
+                    <!-- <div class="file_name"></div> -->
+                    <div class="select_file btn"><i class="fas fa-folder-plus"></i>Select Image</div>
+                    <p>*You can only select PNG & JPG file</p>
+                </form>
+                
+                <div class="filteration">
+                    <div class="effect_wrap">
+                        <select name="effect" id="effects" class="btn sct_btn">
+                            <option disabled selected> Select Effect</option>
+                            <option value="1">Slide</option>
+                            <option value="2">fade</option>
+                        </select>
+                        <i class="fas fa-chevron-down"></i> 
+                    </div>
 
-            <select name="effect" id="effects" class="btn sct_btn">
-                <option disabled selected> Select Effect</option>
-                <option value="1">Slide</option>
-                <option value="2">fade</option>
-            </select>
-
-            <select name="speed" id="speeding" class="btn sct_btn">
-                <option value="0.2">0.2</option>
-                <option value="0.4" selected>0.4</option>
-                <option value="0.6">0.6</option>
-                <option value="0.8">0.8</option>
-                <option value="1">1</option>
-            </select>
+                    <div class="speed_wrap">
+                        <select name="speed" id="speeding" class="btn sct_btn">
+                            <option value="0.2">0.2</option>
+                            <option value="0.4" selected>0.4</option>
+                            <option value="0.6">0.6</option>
+                            <option value="0.8">0.8</option>
+                            <option value="1">1</option>
+                        </select>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <div class="push_slider">
-            <div class="showUrl btn" onclick="showFileName()">Add to Slider</div>
+            <div class="showUrl btn" onclick="showFileName()">Add to Slider <i class="fas fa-chevron-right push_icon"></i></div>
         </div>
     </div>
 
