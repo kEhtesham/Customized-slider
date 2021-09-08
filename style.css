@@ -77,8 +77,8 @@ button:nth-child(2) {
 button {
     background: #9595952d;
     border: 0;
-    border-radius: 28px;
-    padding: 2px 24px 6px 24px;
+    border-radius: 18px;
+    padding: 6px 24px 6px 24px;
     position: absolute;
     bottom: -100px;
     right: 90px;
@@ -94,7 +94,7 @@ form {
     margin-bottom: 50px;
 }
 input#myFile {
-    padding: 16px 0 16px 190px;
+    padding: 16px 0;
     cursor: pointer;
 }
 .btn {
@@ -109,7 +109,7 @@ input#myFile {
     pointer-events: none;
 }
 form p {
-    margin: 5px 0;
+    margin: 15px 0;
     font-size: 14px;
 }
 .showUrl {
@@ -118,7 +118,7 @@ form p {
     margin: 0 auto;
 }
 .sct_btn {
-    background: #f6ff7c;
+    background: #ddddff;
 }
 .custom_slider {
     display: flex;

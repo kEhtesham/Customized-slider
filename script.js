@@ -79,7 +79,7 @@ function showDivs(n) {
 
 function showFileName() {
     var fil = document.getElementById("myFile");
-    
+
     const para = document.createElement("img");
     para.className = 'image_slide';
     para.style.display = 'none';
@@ -91,7 +91,21 @@ function showFileName() {
 
     if (file) {
         para.src = URL.createObjectURL(file);
-        // alert(para.src);
     }
     
 }
+
+// Get Image url Heading 
+
+// function getFunction() {
+//     var filz = document.getElementById("myFile").value;
+//     var file_name = document.querySelector('.file_name');
+//     if (filz == ""){
+//         file_name.innerText = "";
+//     }
+//     else {
+//         file_name.innerText = filz.value.slice(12);
+//         console.log(file_name.innerText);
+//     }
+// }
+
