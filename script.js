@@ -12,10 +12,8 @@ function showDivs(n) {
 
     var getSpeed = document.getElementById("speeding").value;
     var speedElem = document.querySelectorAll('.image_slide');
-    // console.log(speedElem.length);
 
     for(var k = 0; k < speedElem.length; k++){
-        // console.log("test",speedElem[k]);
         speedElem[k].style.animationDuration = getSpeed + "s";
         speedElem[k].style.transitionDuration = getSpeed + "s";
     }
@@ -79,16 +77,24 @@ function showDivs(n) {
 
 function showFileName() {
     var dataThrow = document.querySelector('.showUrl');
-    dataThrow.style.backgroundColor = "#2dff00";
+    dataThrow.style.backgroundColor = "#7a6dff";
 
     dataThrow.innerText = "Adding Image...";
-    setTimeout(function(){
-        dataThrow.innerText = "Done";
-        var node = document.createElement("i");
+    var node = document.createElement("i");
+
+    setTimeout(function() {
+        dataThrow.innerText = "Done";        
         node.className = "fas fa-check push_icon";
     
         dataThrow.appendChild(node);
     }, 2000);
+    setTimeout(function() {
+        dataThrow.innerText = "Add to Slider";
+        node.className = "fas fa-chevron-right push_icon";
+    
+        dataThrow.appendChild(node);
+        dataThrow.style.backgroundColor = "#e9e9ff";
+    }, 4000);
 
     var fil = document.getElementById("myFile");
 
@@ -104,7 +110,6 @@ function showFileName() {
     if (file) {
         para.src = URL.createObjectURL(file);
     }
-    
 }
 
 // Get Image url Heading 

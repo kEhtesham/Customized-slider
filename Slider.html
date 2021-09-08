@@ -23,35 +23,36 @@
     </div>
 
     <div class="custom_slider">
-        <div class="image_details">
-            <div class="slider_customization">
-                <form>
-                    <input type="file" id="myFile" name="filename" accept=".png, .jpg">
-                    <!-- <div class="file_name"></div> -->
-                    <div class="select_file btn"><i class="fas fa-folder-plus"></i>Select Image</div>
-                    <p>*You can only select PNG & JPG file</p>
-                </form>
-                
-                <div class="filteration">
-                    <div class="effect_wrap">
-                        <select name="effect" id="effects" class="btn sct_btn">
-                            <option disabled selected> Select Effect</option>
-                            <option value="1">Slide</option>
-                            <option value="2">fade</option>
-                        </select>
-                        <i class="fas fa-chevron-down"></i> 
-                    </div>
+        <div class="image_details" style="display: none;">
 
-                    <div class="speed_wrap">
-                        <select name="speed" id="speeding" class="btn sct_btn">
-                            <option value="0.2">0.2</option>
-                            <option value="0.4" selected>0.4</option>
-                            <option value="0.6">0.6</option>
-                            <option value="0.8">0.8</option>
-                            <option value="1">1</option>
-                        </select>
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
+        </div>
+        <div class="slider_customization">
+            <form>
+                <input type="file" id="myFile" name="filename" accept=".png, .jpg">
+                <!-- <div class="file_name"></div> -->
+                <div class="select_file btn"><i class="fas fa-folder-plus"></i>Select Image</div>
+                <p>*You can only select PNG & JPG file</p>
+            </form>
+            
+            <div class="filteration">
+                <div class="effect_wrap">
+                    <select name="effect" id="effects" class="btn sct_btn">
+                        <option disabled selected> Select Effect</option>
+                        <option value="1">Slide</option>
+                        <option value="2">fade</option>
+                    </select>
+                    <i class="fas fa-chevron-down"></i> 
+                </div>
+
+                <div class="speed_wrap">
+                    <select name="speed" id="speeding" class="btn sct_btn">
+                        <option value="0.2">0.2</option>
+                        <option value="0.4" selected>0.4</option>
+                        <option value="0.6">0.6</option>
+                        <option value="0.8">0.8</option>
+                        <option value="1">1</option>
+                    </select>
+                    <i class="fas fa-chevron-down"></i>
                 </div>
             </div>
         </div>
