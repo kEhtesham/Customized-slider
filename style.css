@@ -119,6 +119,7 @@ i.fas.fa-chevron-down {
 .filteration {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     width: 60%;
 }
 .effect_wrap {

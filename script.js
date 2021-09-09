@@ -81,26 +81,35 @@ function showDivs(n) {
     }
 }
 
+// range slider 
+
+function Slider_Animation() {
+    var slider = document.getElementById("myRange");
+    var speedElem = document.querySelectorAll('.image_slide');
+    
+    for(var k = 0; k < speedElem.length; k++){
+
+        let Animation_speed = document.getElementById("Animation_speed");
+
+        speedElem[k].style.animationDuration = slider.value/10 + "s";
+        speedElem[k].style.transitionDuration = slider.value/10 + "s";
+        
+        Animation_speed.innerText = slider.value/10 + "s";
+    
+        slider.oninput = function() {
+            Animation_speed.innerText = slider.value/10 + "s";
+            console.log("inner" + Animation_speed);
+        }
+    }   
+}
+Slider_Animation();
+
 // Get and push image
 
 function showFileName() {
 
-    // range slider 
-
-    var slider = document.getElementById("myRange");
-    var speedElem = document.querySelectorAll('.image_slide');
-    var speed_of_animation = document.querySelector('.speed_of_animation');
-
-    for(var k = 0; k < speedElem.length; k++){        
-        speedElem[k].style.animationDuration = slider.value/10 + "s";
-        speedElem[k].style.transitionDuration = slider.value/10 + "s";
-
-        slider.oninput = function() {
-            speedElem[k].style.animationDuration = slider.value/10 + "s";
-            speedElem[k].style.transitionDuration = slider.value/10 + "s";
-            console.log(transitionDuration);
-        }
-    }
+    Slider_Animation();
+    
 
     // get url 
     var dataThrow = document.querySelector('.showUrl');
