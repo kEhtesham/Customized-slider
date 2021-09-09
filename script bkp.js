@@ -10,22 +10,13 @@ function plusDivs(n) {
 function showDivs(n) {
     var x = document.getElementsByClassName('image_slide');
 
-    // var slider = document.getElementById("myRange");
+    var getSpeed = document.getElementById("speeding").value;
+    var speedElem = document.querySelectorAll('.image_slide');
 
-    // var speedElem = document.querySelectorAll('.image_slide');
-
-    // for(var k = 0; k < speedElem.length; k++){        
-
-    //     speedElem[k].style.animationDuration = slider.value/10 + "s";
-    //     speedElem[k].style.transitionDuration = slider.value/10 + "s";
-
-    //     slider.oninput = function() {
-    //         speedElem[k].style.animationDuration = slider.value/10 + "s";
-    //         speedElem[k].style.transitionDuration = slider.value/10 + "s";
-    //         console.log(transitionDuration);
-    //     }
-    // }
-
+    for(var k = 0; k < speedElem.length; k++){
+        speedElem[k].style.animationDuration = getSpeed + "s";
+        speedElem[k].style.transitionDuration = getSpeed + "s";
+    }
     if (n > x.length) {
         sliderNumber = 1;
     }
@@ -36,16 +27,17 @@ function showDivs(n) {
     var effect = document.getElementById('effects').value;
     
     for (var i=0; i< x.length; i++) {
-        x[i].style.display= "none";
-        if (effect == 1) {
-            x[i].classList.remove("visible");
-            x[i].classList.remove("remove");
-            x[i].classList.remove("fadeout");
-        }
-        else {
-            x[i].classList.remove("fade");
-            x[i].classList.add("fadeout");
-        }   
+            x[i].style.display= "none";
+            if (effect == 1) {
+                x[i].classList.remove("visible");
+                x[i].classList.remove("remove");
+                x[i].classList.remove("fadeout");
+            }
+            else {
+                x[i].classList.remove("fade");
+                x[i].classList.add("fadeout");
+            }
+        
     }
     
     x[sliderNumber-1].style.display= "block";
@@ -81,28 +73,20 @@ function showDivs(n) {
     }
 }
 
+
+// slider value 
+
+var slider = document.getElementById("myRange");
+var output = document.getElementById("demo");
+output.innerHTML = slider.value;
+
+slider.oninput = function() {
+  output.innerHTML = this.value/10;
+  
+}
 // Get and push image
 
 function showFileName() {
-
-    // range slider 
-
-    var slider = document.getElementById("myRange");
-    var speedElem = document.querySelectorAll('.image_slide');
-    var speed_of_animation = document.querySelector('.speed_of_animation');
-
-    for(var k = 0; k < speedElem.length; k++){        
-        speedElem[k].style.animationDuration = slider.value/10 + "s";
-        speedElem[k].style.transitionDuration = slider.value/10 + "s";
-
-        slider.oninput = function() {
-            speedElem[k].style.animationDuration = slider.value/10 + "s";
-            speedElem[k].style.transitionDuration = slider.value/10 + "s";
-            console.log(transitionDuration);
-        }
-    }
-
-    // get url 
     var dataThrow = document.querySelector('.showUrl');
     dataThrow.style.backgroundColor = "#7a6dff";
 
@@ -130,12 +114,7 @@ function showFileName() {
     para.style.display = 'none';
 
     const element = document.getElementById("image_path");
-    if (src=" "){
-        alert('SRC is Blank, Please add the image');
-    }
-    else {
-        element.appendChild(para);   
-    }    
+    element.appendChild(para);
 
     const [file] = fil.files;
 

@@ -10,7 +10,7 @@ div#image_path {
     transform: translateX(110%);
     width: 100%;
     height: 50vh;
-    object-fit: cover;
+    object-fit: contain;
     transition: ease all;
 }
 
@@ -119,9 +119,9 @@ i.fas.fa-chevron-down {
 .filteration {
     display: flex;
     justify-content: space-between;
-    width: 70%;
+    width: 60%;
 }
-.effect_wrap, .speed_wrap {
+.effect_wrap {
     position: relative;
 }
 .select_file {
