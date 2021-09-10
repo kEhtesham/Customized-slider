@@ -10,22 +10,6 @@ function plusDivs(n) {
 function showDivs(n) {
     var x = document.getElementsByClassName('image_slide');
 
-    // var slider = document.getElementById("myRange");
-
-    // var speedElem = document.querySelectorAll('.image_slide');
-
-    // for(var k = 0; k < speedElem.length; k++){        
-
-    //     speedElem[k].style.animationDuration = slider.value/10 + "s";
-    //     speedElem[k].style.transitionDuration = slider.value/10 + "s";
-
-    //     slider.oninput = function() {
-    //         speedElem[k].style.animationDuration = slider.value/10 + "s";
-    //         speedElem[k].style.transitionDuration = slider.value/10 + "s";
-    //         console.log(transitionDuration);
-    //     }
-    // }
-
     if (n > x.length) {
         sliderNumber = 1;
     }
@@ -106,63 +90,56 @@ Slider_Animation();
 
 // Get and push image
 
-function showFileName() {
-
-    Slider_Animation();
+function showFileName() {    
     
-
     // get url 
     var dataThrow = document.querySelector('.showUrl');
+
     dataThrow.style.backgroundColor = "#7a6dff";
-
-    dataThrow.innerText = "Adding Image...";
+    dataThrow.innerText = "Adding the rest Filters...";
     var node = document.createElement("i");
+    buttonAnimation();
 
-    setTimeout(function() {
-        dataThrow.innerText = "Done";        
-        node.className = "fas fa-check push_icon";
-    
-        dataThrow.appendChild(node);
-    }, 2000);
-    setTimeout(function() {
-        dataThrow.innerText = "Add to Slider";
-        node.className = "fas fa-chevron-right push_icon";
-    
-        dataThrow.appendChild(node);
-        dataThrow.style.backgroundColor = "#e9e9ff";
-    }, 4000);
+    function buttonAnimation() {
+        setTimeout(function() {
+            dataThrow.innerText = "Done";        
+            node.className = "fas fa-check push_icon";
+        
+            dataThrow.appendChild(node);
+        }, 3000);
+        setTimeout(function() {
+            
+            dataThrow.innerText = "Add to Slider";
+            node.className = "fas fa-chevron-right push_icon";
+        
+            dataThrow.appendChild(node);
+            dataThrow.style.backgroundColor = "#e9e9ff";
+        }, 5000);
+    }
 
     var fil = document.getElementById("myFile");
-
+    const element = document.getElementById("image_path");
     const para = document.createElement("img");
     para.className = 'image_slide';
     para.style.display = 'none';
-
-    const element = document.getElementById("image_path");
-    if (src=" "){
-        alert('SRC is Blank, Please add the image');
-    }
-    else {
-        element.appendChild(para);   
-    }    
-
+    para.style.animationDuration = '1s';
+    para.style.transitionDuration = '1s';
+    
     const [file] = fil.files;
 
-    if (file) {
+    if(file) {
         para.src = URL.createObjectURL(file);
+        element.appendChild(para);
+        dataThrow.style.backgroundColor = "#7a6dff";
+        dataThrow.innerText = "Adding Image...";
+        var node = document.createElement("i");
+        buttonAnimation();
+        fil.value = null;
     }
+    else {
+        alert('Please Upload Image to Preview in slider');
+        buttonAnimation();
+    }
+
+    Slider_Animation();
 }
-
-// Get Image url Heading 
-
-// function getFunction() {
-//     var filz = document.getElementById("myFile").value;
-//     var file_name = document.querySelector('.file_name');
-//     if (filz == ""){
-//         file_name.innerText = "";
-//     }
-//     else {
-//         file_name.innerText = filz.value.slice(12);
-//         console.log(file_name.innerText);
-//     }
-// }

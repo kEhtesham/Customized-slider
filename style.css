@@ -99,6 +99,7 @@ form {
 input#myFile {
     padding: 16px 0;
     cursor: pointer;
+    outline: none;
 }
 .btn {
     padding: 18px;
